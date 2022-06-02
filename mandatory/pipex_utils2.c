@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:15 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 19:22:16 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 17:31:52 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 char	**ft_get_path(char **envp)
 {
 	char	**ss;
-	int		success_flag;
 	char	**s;
 
 	ss = NULL;
-	s = ft_find_word_path(envp, &success_flag);
+	s = ft_find_word_path(envp);
 	if (s == NULL)
 		return (NULL);
 	else

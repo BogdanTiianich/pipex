@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils4.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:15 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 19:25:32 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:47:57 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ t_process **processes, t_vars vars)
 	vars.num_of_processes - 1, pipes, files) == 1)
 		ft_errors(pipes, processes);
 	ft_close_unnecessary_fds(pipes, processes);
+	ft_putstr_fd((*processes[vars.current_process]).command[0], 2);
 	execve((*processes[vars.current_process]).command[0], \
 	(*processes[vars.current_process]).command, vars.envp);
+	ft_putstr_fd("something bad happend\n", 2);
 	ft_errors(pipes, processes);
 }
 

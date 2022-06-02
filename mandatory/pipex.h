@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:47 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 19:22:26 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:49:19 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_process
 	int		id;
 }	t_process;
 
+int			ft_split_print(char **s);
 void		ft_free(void *pointer);
 int			ft_split_free(char **s);
 void		ft_free_pipes(t_pipes *pipes);
@@ -71,8 +72,8 @@ void		ft_errors(t_pipes *pipes, t_process **processes);
 char		*ft_check_access(char *command_name, char **path);
 void		ft_print_split(char **s);//r
 int			ft_strcmp_hand(char *s1, char*s2);
-int			num_of_strings(char const *s, char c, int start);
-char		**ft_find_word_path(char **envp, int *success_flag);
+int			num_of_strings(char const *s, char c);
+char		**ft_find_word_path(char **envp);
 char		**ft_get_path(char **envp);
 int			ft_close_unnecessary_fds(t_pipes *pipes, t_process **processes);
 int			ft_read_here_doc(char *limiter, t_pipes *pipes);

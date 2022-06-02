@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:15 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 19:10:43 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:46:40 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_check_access(char *command_name, char **path)
 	s = NULL;
 	while (path[i] != NULL)
 	{
+		if (i != 0)
+			free(s);
 		tmp = ft_strjoin(path[i], "/");
 		if (tmp == NULL)
 			return (NULL);
@@ -33,11 +35,9 @@ char	*ft_check_access(char *command_name, char **path)
 		tmp = NULL;
 		if (access(s, 1) == 0)
 			return (s);
-		else
-			free(s);
 		i++;
 	}
-	return (NULL);
+	return (s);
 }
 
 int	ft_strcmp_hand(char *s1, char*s2)
@@ -59,7 +59,7 @@ int	ft_strcmp_hand(char *s1, char*s2)
 		return (-1);
 }
 
-int	num_of_strings(char const *s, char c, int start)
+int	num_of_strings(char const *s, char c)
 {
 	int	i;
 	int	num_of_strings;
@@ -69,13 +69,11 @@ int	num_of_strings(char const *s, char c, int start)
 	num_of_strings = 0;
 	if (ft_strlen(s) == 0)
 		return (0);
-	start = 0;
 	k = 0;
 	while (s[i] != '\0')
 	{
 		if ((k == 0) && (s[i] != c))
 		{
-			start = i;
 			k = 1;
 		}
 		if ((s[i] == c) && (i != 0) && (s[i - 1] != c))
@@ -87,13 +85,12 @@ int	num_of_strings(char const *s, char c, int start)
 	return (num_of_strings);
 }
 
-char	**ft_find_word_path(char **envp, int *success_flag)
+char	**ft_find_word_path(char **envp)
 {
 	char	**s;
 	int		i;
 
 	i = 0;
-	success_flag = 0;
 	while (envp[i] != NULL)
 	{
 		s = ft_split(envp[i], '=');

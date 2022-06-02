@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 20:07:16 by hbecki            #+#    #+#             */
-/*   Updated: 2021/10/18 20:58:01 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 18:03:42 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+	write(fd, "\n", 1);
 }

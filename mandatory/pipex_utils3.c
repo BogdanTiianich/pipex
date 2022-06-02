@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:15 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 19:22:46 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:46:53 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ t_vars *vars, t_pipes *pipes, int iter)
 		ft_errors(pipes, processes);
 	}
 	(*processes[iter - (*vars).start]).command = (char **)malloc((\
-	num_of_strings((*vars).argv[iter], ' ', 0) + 1) * sizeof(char *));
+	num_of_strings((*vars).argv[iter], ' ') + 1) * sizeof(char *));
 	if ((*processes[iter - (*vars).start]).command == NULL)
 	{
 		ft_split_free((*vars).s);

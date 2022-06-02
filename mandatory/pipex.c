@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbecki <hbecki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bogdantiyanich <bogdantiyanich@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:29:15 by hbecki            #+#    #+#             */
-/*   Updated: 2022/04/03 18:57:15 by hbecki           ###   ########.fr       */
+/*   Updated: 2022/05/28 19:49:13 by bogdantiyan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+int	ft_split_print(char **s)
+{
+	int	i;
+
+	i = 0;
+	if (s != NULL)
+	{
+		while (s[i] != NULL)
+		{
+			ft_putstr_fd(s[i], 2);
+			i++;
+		}
+	}
+	return (0);
+}
+
 
 void	ft_free(void *pointer)
 {
@@ -79,7 +96,7 @@ void	ft_free_processes(t_process **processes)
 void	ft_errors(t_pipes *pipes, t_process **processes)
 {
 	write(2, "got in error function\n", 22);
-	ft_putstr_fd(strerror(errno), 2);
+	ft_putstr_fd(strerror(errno), 1);
 	ft_free_pipes(pipes);
 	ft_free_processes(processes);
 	exit(1);
